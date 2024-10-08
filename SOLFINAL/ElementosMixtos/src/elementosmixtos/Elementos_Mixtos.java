@@ -4,6 +4,8 @@
  */
 package elementosmixtos;
 
+import java.awt.Color;
+
 /**
  *
  * @author galog
@@ -62,6 +64,11 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
         setResizable(false);
 
         RadioBoton1.setText("Opcion 1");
+        RadioBoton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RadioBoton1MouseClicked(evt);
+            }
+        });
 
         RadioBoton2.setText("Opcion 2");
 
@@ -73,11 +80,38 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
 
         CheckBox3.setText("Opcion 5");
 
+        CampoSimple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoSimpleActionPerformed(evt);
+            }
+        });
+        CampoSimple.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoSimpleKeyTyped(evt);
+            }
+        });
+
+        CampoCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoCorreoActionPerformed(evt);
+            }
+        });
+        CampoCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoCorreoKeyTyped(evt);
+            }
+        });
+
         TextoCorreo.setText("Correo");
 
         ComboBoxItems.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         BotonEstado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementosmixtos/b_off.png"))); // NOI18N
+        BotonEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEstadoActionPerformed(evt);
+            }
+        });
 
         RadioBoton1E.setText("Opcion 1");
         RadioBoton1E.setEnabled(false);
@@ -128,7 +162,7 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -150,49 +184,50 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ComboBoxItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(CampoSimple, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(BarraHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Contador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(ComboBoxItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Contador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(BotonEstado)
-                                        .addGap(40, 40, 40))))))
+                                        .addGap(52, 52, 52))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(RadioBoton1E)
-                                .addGap(18, 18, 18)
-                                .addComponent(CheckBox1E))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(RadioBoton2E)
-                                .addGap(18, 18, 18)
-                                .addComponent(CheckBox2E))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(RadioBoton3E)
                                 .addGap(18, 18, 18)
-                                .addComponent(CheckBox3E)))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(CheckBox3E))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(RadioBoton1E)
+                                .addGap(29, 29, 29)
+                                .addComponent(CheckBox1E)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CampoSimpleE, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BarraHorizontalE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ComboBoxItemsE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ContadorE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(ContadorE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComboBoxItemsE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BotonEstadoE)
+                                .addGap(54, 54, 54))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(RadioBoton2E)
+                        .addGap(18, 18, 18)
+                        .addComponent(CheckBox2E)
+                        .addGap(42, 582, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(TextoCorreoE)
-                        .addGap(56, 56, 56)
+                        .addGap(38, 38, 38)
                         .addComponent(CampoCorreoE, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonEstadoE)
-                        .addGap(42, 42, 42)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
@@ -221,34 +256,48 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(ComboBoxItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(97, 97, 97)
                         .addComponent(BotonEstado)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CampoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TextoCorreo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoSimpleE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RadioBoton1E)
-                    .addComponent(CheckBox1E)
-                    .addComponent(BarraHorizontalE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RadioBoton2E)
-                    .addComponent(CheckBox2E)
-                    .addComponent(ContadorE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RadioBoton3E)
-                    .addComponent(CheckBox3E)
-                    .addComponent(ComboBoxItemsE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextoCorreoE)
-                    .addComponent(CampoCorreoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonEstadoE))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RadioBoton1E)
+                            .addComponent(CheckBox1E))
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CampoSimpleE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BarraHorizontalE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RadioBoton2E)
+                            .addComponent(CheckBox2E)
+                            .addComponent(ContadorE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 53, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(RadioBoton3E)
+                                    .addComponent(CheckBox3E)
+                                    .addComponent(ComboBoxItemsE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(BotonEstadoE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CampoCorreoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoCorreoE))
+                        .addGap(72, 72, 72))))
         );
 
         pack();
@@ -262,6 +311,64 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
     private void RadioBoton3EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioBoton3EActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RadioBoton3EActionPerformed
+
+    private void BotonEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonEstadoActionPerformed
+
+    private void CampoSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSimpleActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_CampoSimpleActionPerformed
+
+    private void CampoSimpleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoSimpleKeyTyped
+        
+        
+        CampoSimple.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+        @Override
+        public void insertUpdate(javax.swing.event.DocumentEvent e) {
+            actualizarTexto();
+        }
+
+        @Override
+        public void removeUpdate(javax.swing.event.DocumentEvent e) {
+            actualizarTexto();
+        }
+
+        @Override
+        public void changedUpdate(javax.swing.event.DocumentEvent e) {
+            actualizarTexto();
+        }
+
+        // Método que actualiza el contenido de campoB con lo que hay en campoA
+        private void actualizarTexto() {
+            CampoSimpleE.setText(CampoSimple.getText());
+        }
+    });
+        
+        
+    }//GEN-LAST:event_CampoSimpleKeyTyped
+
+    private void CampoCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCorreoActionPerformed
+        
+    }//GEN-LAST:event_CampoCorreoActionPerformed
+
+    private void CampoCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoCorreoKeyTyped
+        if (!CampoCorreo.getText().contains("@") || !CampoCorreo.getText().contains(".")){
+            CampoCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+            CampoCorreoE.setText("Incorrecto");
+        }
+        
+        if (CampoCorreo.getText().contains("@") && CampoCorreo.getText().contains(".")){
+            CampoCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GREEN));
+            CampoCorreoE.setText("Correcto");
+       }
+    }//GEN-LAST:event_CampoCorreoKeyTyped
+
+    private void RadioBoton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioBoton1MouseClicked
+        
+    }//GEN-LAST:event_RadioBoton1MouseClicked
 
     /**
      * @param args the command line arguments
