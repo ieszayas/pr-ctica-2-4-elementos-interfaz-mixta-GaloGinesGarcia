@@ -22,6 +22,7 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
         
         setTitle("GUI mixta");
         setResizable(false);
+        tickVerde.setVisible(false);
         
     }
 
@@ -61,6 +62,7 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
         BotonEstadoE = new javax.swing.JToggleButton();
         BarraHorizontalE = new javax.swing.JSlider();
         BarraEstado = new javax.swing.JProgressBar();
+        tickVerde = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GUI mixtsa");
@@ -231,6 +233,8 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
 
         BarraHorizontalE.setEnabled(false);
 
+        tickVerde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementosmixtos/tick.jpg"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -248,27 +252,17 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                                 .addComponent(RadioBoton1E)
                                 .addGap(29, 29, 29)
                                 .addComponent(CheckBox1E)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(BotonEstadoE)
                                 .addGap(83, 83, 83))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BarraHorizontalE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(BarraHorizontalE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(RadioBoton2E)
                         .addGap(18, 18, 18)
                         .addComponent(CheckBox2E)
                         .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(TextoCorreoE)
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BarraEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CampoCorreoE, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RadioBoton1)
@@ -279,6 +273,8 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CampoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(tickVerde)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -301,9 +297,17 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                                                 .addComponent(ContadorE, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(CampoSimpleE, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(ComboBoxItemsE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                                         .addComponent(BarraHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(29, 29, 29))))
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(TextoCorreoE)
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BarraEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CampoCorreoE, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,8 +340,9 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CampoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextoCorreo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                    .addComponent(TextoCorreo)
+                    .addComponent(tickVerde))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -359,7 +364,7 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 91, Short.MAX_VALUE)
+                                .addGap(0, 94, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(RadioBoton3E)
                                     .addComponent(CheckBox3E)
@@ -372,9 +377,9 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CampoCorreoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextoCorreoE))
-                        .addGap(32, 32, 32)))
-                .addComponent(BarraEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                        .addGap(29, 29, 29)))
+                .addComponent(BarraEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -437,11 +442,15 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
         if (!CampoCorreo.getText().contains("@") || !CampoCorreo.getText().contains(".")){
             CampoCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
             
+            BarraEstado.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
+            tickVerde.setVisible(false);
         }
         
         if (CampoCorreo.getText().contains("@") && CampoCorreo.getText().contains(".")){
             CampoCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(Color.GREEN));
             
+            BarraEstado.setBorder(javax.swing.BorderFactory.createLineBorder(Color.green));
+            tickVerde.setVisible(true);
        }
         
         
@@ -555,12 +564,12 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
 
     private void ContadorAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ContadorAncestorMoved
         
-        ContadorE.setValue(Contador.getValue());
+        //NO SIRVE ESTE EVENTO
         
     }//GEN-LAST:event_ContadorAncestorMoved
 
     private void ContadorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ContadorAncestorAdded
-        ContadorE.setValue(Contador.getValue());
+        //NO SIRVE ESTE EVENTO
     }//GEN-LAST:event_ContadorAncestorAdded
 
     /**
@@ -626,5 +635,6 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadioBoton3E;
     private javax.swing.JLabel TextoCorreo;
     private javax.swing.JLabel TextoCorreoE;
+    private javax.swing.JLabel tickVerde;
     // End of variables declaration//GEN-END:variables
 }
