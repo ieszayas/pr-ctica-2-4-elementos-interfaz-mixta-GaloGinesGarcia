@@ -269,14 +269,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="CampoSimple">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoSimpleActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CampoSimpleKeyTyped"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CampoSimpleKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="CampoCorreo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoCorreoActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CampoCorreoKeyTyped"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CampoCorreoKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="TextoCorreo">
@@ -296,7 +294,6 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ComboBoxItemsMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboBoxItemsActionPerformed"/>
       </Events>
       <AuxValues>
@@ -306,14 +303,10 @@
     <Component class="javax.swing.JSlider" name="BarraHorizontal">
       <Events>
         <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="BarraHorizontalMouseDragged"/>
-        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="BarraHorizontalMouseMoved"/>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BarraHorizontalMousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSpinner" name="Contador">
       <Events>
-        <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="ContadorAncestorAdded"/>
-        <EventHandler event="ancestorMoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="ContadorAncestorMoved"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ContadorMouseClicked"/>
       </Events>
     </Component>
@@ -322,10 +315,14 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/elementosmixtos/b_off.png"/>
         </Property>
+        <Property name="rolloverEnabled" type="boolean" value="false"/>
+        <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/elementosmixtos/b_on.png"/>
+        </Property>
+        <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotonEstadoMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEstadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RadioBoton1E">
@@ -345,9 +342,6 @@
         <Property name="text" type="java.lang.String" value="Opcion 3"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RadioBoton3EActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="CheckBox1E">
       <Properties>
@@ -413,6 +407,10 @@
           <Image iconType="3" name="/elementosmixtos/b_off.png"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="rolloverEnabled" type="boolean" value="false"/>
+        <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/elementosmixtos/b_on.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="BarraHorizontalE">

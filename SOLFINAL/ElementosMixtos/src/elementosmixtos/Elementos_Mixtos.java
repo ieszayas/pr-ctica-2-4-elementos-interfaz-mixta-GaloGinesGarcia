@@ -5,6 +5,8 @@
 package elementosmixtos;
 
 import java.awt.Color;
+import java.lang.foreign.MemoryLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -19,11 +21,19 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
      */
     public Elementos_Mixtos() {
         initComponents();
-        
+
         setTitle("GUI mixta");
         setResizable(false);
         tickVerde.setVisible(false);
-        
+        ButtonGroup group = new ButtonGroup();
+        ButtonGroup groupE = new ButtonGroup();
+        group.add(RadioBoton1);
+        group.add(RadioBoton2);
+        group.add(RadioBoton3);
+        groupE.add(RadioBoton1E);
+        groupE.add(RadioBoton2E);
+        groupE.add(RadioBoton3E);
+
     }
 
     /**
@@ -110,36 +120,21 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
             }
         });
 
-        CampoSimple.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoSimpleActionPerformed(evt);
-            }
-        });
         CampoSimple.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                CampoSimpleKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CampoSimpleKeyReleased(evt);
             }
         });
 
-        CampoCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoCorreoActionPerformed(evt);
-            }
-        });
         CampoCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                CampoCorreoKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CampoCorreoKeyReleased(evt);
             }
         });
 
         TextoCorreo.setText("Correo");
 
         ComboBoxItems.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ComboBoxItems.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ComboBoxItemsMouseClicked(evt);
-            }
-        });
         ComboBoxItems.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxItemsActionPerformed(evt);
@@ -150,26 +145,8 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 BarraHorizontalMouseDragged(evt);
             }
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                BarraHorizontalMouseMoved(evt);
-            }
-        });
-        BarraHorizontal.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                BarraHorizontalMousePressed(evt);
-            }
         });
 
-        Contador.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                ContadorAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                ContadorAncestorMoved(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         Contador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ContadorMouseClicked(evt);
@@ -177,14 +154,12 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
         });
 
         BotonEstado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementosmixtos/b_off.png"))); // NOI18N
+        BotonEstado.setRolloverEnabled(false);
+        BotonEstado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/elementosmixtos/b_on.png"))); // NOI18N
+        BotonEstado.setVerifyInputWhenFocusTarget(false);
         BotonEstado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonEstadoMouseClicked(evt);
-            }
-        });
-        BotonEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonEstadoActionPerformed(evt);
             }
         });
 
@@ -196,11 +171,6 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
 
         RadioBoton3E.setText("Opcion 3");
         RadioBoton3E.setEnabled(false);
-        RadioBoton3E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RadioBoton3EActionPerformed(evt);
-            }
-        });
 
         CheckBox1E.setText("Opcion 4");
         CheckBox1E.setEnabled(false);
@@ -230,6 +200,8 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
 
         BotonEstadoE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elementosmixtos/b_off.png"))); // NOI18N
         BotonEstadoE.setEnabled(false);
+        BotonEstadoE.setRolloverEnabled(false);
+        BotonEstadoE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/elementosmixtos/b_on.png"))); // NOI18N
 
         BarraHorizontalE.setEnabled(false);
 
@@ -388,57 +360,109 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
 
     private void CampoSimpleEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSimpleEActionPerformed
         //NO SIRVE ESTE EVENTO
-        
+
     }//GEN-LAST:event_CampoSimpleEActionPerformed
 
-    private void RadioBoton3EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioBoton3EActionPerformed
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_RadioBoton3EActionPerformed
+    private void RadioBoton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioBoton1MouseClicked
+        if (RadioBoton1.isSelected() == true) {
+            RadioBoton1E.setSelected(true);
+        }
 
-    private void BotonEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEstadoActionPerformed
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_BotonEstadoActionPerformed
+        if (RadioBoton1.isSelected() == false) {
+            RadioBoton1E.setSelected(false);
+        }
 
-    private void CampoSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSimpleActionPerformed
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_CampoSimpleActionPerformed
 
-    private void CampoSimpleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoSimpleKeyTyped
-        
+    }//GEN-LAST:event_RadioBoton1MouseClicked
+
+    private void RadioBoton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioBoton2MouseClicked
+        if (RadioBoton2.isSelected() == true) {
+            RadioBoton2E.setSelected(true);
+        }
+
+        if (RadioBoton2.isSelected() == false) {
+            RadioBoton2E.setSelected(false);
+        }
+    }//GEN-LAST:event_RadioBoton2MouseClicked
+
+    private void RadioBoton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioBoton3MouseClicked
+        if (RadioBoton3.isSelected() == true) {
+            RadioBoton3E.setSelected(true);
+        }
+
+        if (RadioBoton3.isSelected() == false) {
+            RadioBoton3E.setSelected(false);
+        }
+    }//GEN-LAST:event_RadioBoton3MouseClicked
+
+    private void CheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBox1MouseClicked
+        if (CheckBox1.isSelected() == true) {
+            CheckBox1E.setSelected(true);
+        }
+
+        if (CheckBox1.isSelected() == false) {
+            CheckBox1E.setSelected(false);
+        }
+    }//GEN-LAST:event_CheckBox1MouseClicked
+
+    private void CheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBox2MouseClicked
+        if (CheckBox2.isSelected() == true) {
+            CheckBox2E.setSelected(true);
+        }
+
+        if (CheckBox2.isSelected() == false) {
+            CheckBox2E.setSelected(false);
+        }
+    }//GEN-LAST:event_CheckBox2MouseClicked
+
+    private void CheckBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBox3MouseClicked
+        if (CheckBox3.isSelected() == true) {
+            CheckBox3E.setSelected(true);
+        }
+
+        if (CheckBox3.isSelected() == false) {
+            CheckBox3E.setSelected(false);
+        }
+    }//GEN-LAST:event_CheckBox3MouseClicked
+
+    private void BotonEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonEstadoMouseClicked
+        if (BotonEstado.isSelected() == true) {
+            BotonEstadoE.setSelected(true);
+        }
+
+        if (BotonEstado.isSelected() == false) {
+            BotonEstadoE.setSelected(false);
+        }
+    }//GEN-LAST:event_BotonEstadoMouseClicked
+
+    private void ComboBoxItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxItemsActionPerformed
+        ComboBoxItemsE.setSelectedIndex(ComboBoxItems.getSelectedIndex());
+    }//GEN-LAST:event_ComboBoxItemsActionPerformed
+
+    private void ContadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContadorMouseClicked
+        Contador.addChangeListener(new ChangeListener(){
+            
+            
+           public void stateChanged (ChangeEvent e){
+               
+               int value = (int) Contador.getValue();
+               ContadorE.setValue(value);
+               
+           } 
+            
+        });
+    }//GEN-LAST:event_ContadorMouseClicked
+
+    private void BarraHorizontalMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraHorizontalMouseDragged
+        BarraHorizontalE.setValue(BarraHorizontal.getValue());
+    }//GEN-LAST:event_BarraHorizontalMouseDragged
+
+    private void CampoSimpleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoSimpleKeyReleased
         CampoSimpleE.setText(CampoSimple.getText());
+    }//GEN-LAST:event_CampoSimpleKeyReleased
 
-    }//GEN-LAST:event_CampoSimpleKeyTyped
-
-    private void CampoCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCorreoActionPerformed
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_CampoCorreoActionPerformed
-
-    private void CampoCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoCorreoKeyTyped
-        
-        
-        
-//        CampoCorreo.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-//        @Override
-//        public void insertUpdate(javax.swing.event.DocumentEvent e) {
-//            actualizarTexto();
-//        }
-//
-//        @Override
-//        public void removeUpdate(javax.swing.event.DocumentEvent e) {
-//            actualizarTexto();
-//        }
-//
-//        @Override
-//        public void changedUpdate(javax.swing.event.DocumentEvent e) {
-//            actualizarTexto();
-//        }
-//
-//        
-//        private void actualizarTexto() {
-//            CampoCorreo.setText(CampoCorreoE.getText());
-//        }
-//        });
-        CampoCorreoE.setText(CampoCorreo.getText());
+    private void CampoCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoCorreoKeyReleased
+         CampoCorreoE.setText(CampoCorreo.getText());
         if (!CampoCorreo.getText().contains("@") || !CampoCorreo.getText().contains(".")){
             CampoCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED));
             
@@ -452,125 +476,7 @@ public class Elementos_Mixtos extends javax.swing.JFrame {
             BarraEstado.setBorder(javax.swing.BorderFactory.createLineBorder(Color.green));
             tickVerde.setVisible(true);
        }
-        
-        
-        
-    }//GEN-LAST:event_CampoCorreoKeyTyped
-
-    private void RadioBoton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioBoton1MouseClicked
-        if (RadioBoton1.isSelected() == true){
-            RadioBoton1E.setSelected(true);         
-        }
-        
-        if (RadioBoton1.isSelected() == false){
-            RadioBoton1E.setSelected(false);
-        }
-    }//GEN-LAST:event_RadioBoton1MouseClicked
-
-    private void RadioBoton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioBoton2MouseClicked
-        if (RadioBoton2.isSelected() == true){
-            RadioBoton2E.setSelected(true);         
-        }
-        
-        if (RadioBoton2.isSelected() == false){
-            RadioBoton2E.setSelected(false);
-        }
-    }//GEN-LAST:event_RadioBoton2MouseClicked
-
-    private void RadioBoton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioBoton3MouseClicked
-        if (RadioBoton3.isSelected() == true){
-            RadioBoton3E.setSelected(true);         
-        }
-        
-        if (RadioBoton3.isSelected() == false){
-            RadioBoton3E.setSelected(false);
-        }
-    }//GEN-LAST:event_RadioBoton3MouseClicked
-
-    private void CheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBox1MouseClicked
-        if (CheckBox1.isSelected() == true){
-            CheckBox1E.setSelected(true);         
-        }
-        
-        if (CheckBox1.isSelected() == false){
-            CheckBox1E.setSelected(false);
-        }
-    }//GEN-LAST:event_CheckBox1MouseClicked
-
-    private void CheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBox2MouseClicked
-        if (CheckBox2.isSelected() == true){
-            CheckBox2E.setSelected(true);         
-        }
-        
-        if (CheckBox2.isSelected() == false){
-            CheckBox2E.setSelected(false);
-        }
-    }//GEN-LAST:event_CheckBox2MouseClicked
-
-    private void CheckBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBox3MouseClicked
-        if (CheckBox3.isSelected() == true){
-            CheckBox3E.setSelected(true);         
-        }
-        
-        if (CheckBox3.isSelected() == false){
-            CheckBox3E.setSelected(false);
-        }
-    }//GEN-LAST:event_CheckBox3MouseClicked
-
-    private void BotonEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonEstadoMouseClicked
-        if (BotonEstado.isSelected() == true){
-            BotonEstadoE.setSelected(true); 
-        }
-        
-        if (BotonEstado.isSelected() == false){
-            BotonEstadoE.setSelected(false);
-        }
-    }//GEN-LAST:event_BotonEstadoMouseClicked
-
-    private void BarraHorizontalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraHorizontalMousePressed
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_BarraHorizontalMousePressed
-
-    private void ComboBoxItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboBoxItemsMouseClicked
-
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_ComboBoxItemsMouseClicked
-
-    private void ComboBoxItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxItemsActionPerformed
-        ComboBoxItemsE.setSelectedIndex(ComboBoxItems.getSelectedIndex());
-    }//GEN-LAST:event_ComboBoxItemsActionPerformed
-
-    private void ContadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContadorMouseClicked
-//        Contador.addChangeListener(new ChangeListener(){
-//            
-//            
-//           public void stateChanged (ChangeEvent e){
-//               
-//               int value = (int) Contador.getValue();
-//               ContadorE.setValue(value);
-//               
-//           } 
-//            
-//        });
-    }//GEN-LAST:event_ContadorMouseClicked
-
-    private void BarraHorizontalMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraHorizontalMouseMoved
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_BarraHorizontalMouseMoved
-
-    private void BarraHorizontalMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraHorizontalMouseDragged
-        BarraHorizontalE.setValue(BarraHorizontal.getValue());
-    }//GEN-LAST:event_BarraHorizontalMouseDragged
-
-    private void ContadorAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ContadorAncestorMoved
-        
-        //NO SIRVE ESTE EVENTO
-        
-    }//GEN-LAST:event_ContadorAncestorMoved
-
-    private void ContadorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ContadorAncestorAdded
-        //NO SIRVE ESTE EVENTO
-    }//GEN-LAST:event_ContadorAncestorAdded
+    }//GEN-LAST:event_CampoCorreoKeyReleased
 
     /**
      * @param args the command line arguments
