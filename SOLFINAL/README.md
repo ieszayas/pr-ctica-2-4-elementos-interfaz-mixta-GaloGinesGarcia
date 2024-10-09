@@ -37,7 +37,7 @@ Mejora el ejercicio anterior agregando una **validación** en tiempo real del ca
 | 02             | Verificar Radio Buttons (JRadiobutton)   | Modificar Radio buttons          | Se duplican en la otra mitad                                                     | OK|
 | 03             | Verificar Check Buttons (JCheckbox)      | Modificar Check Box              | Se duplican en la otra mitad                                                     | OK|
 | 04             | Verificar Listado (JCombobox)            | Modificar Combobox               | Se duplican en la otra mitad                                                     | OK|
-| 05             | Verificar Spinner (JSpinner)             | Modificar Spinner                | Se duplican en la otra mitad                                                     | No cumple|
+| 05             | Verificar Spinner (JSpinner)             | Modificar Spinner                | Se duplican en la otra mitad                                                     | OK|
 | 06             | Verificar Barra deslizadora              | Deslizar barra                   | Se duplican en la otra mitad                                                     | OK|
 | 07             | Verificar Toggle Botón (JToggleButton)   | Pulsar botón                     | Se duplican en la otra mitad                                                     | OK|
 | 08             | Validación campo correo                  | Escribir un correo electrónico en formato incorrecto | Se muestra un borde en color rojo hasta que su formato sea correcto. | OK|
